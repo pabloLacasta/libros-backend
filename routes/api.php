@@ -14,5 +14,6 @@ use Illuminate\Http\Request;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
+   Route::post('/libros', 'LibrosController@store');
     return $request->user();
 });
