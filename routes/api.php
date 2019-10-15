@@ -14,8 +14,8 @@ use Illuminate\Http\Request;
 */
 
 //LIBROS
-
 Route::post('/libro', 'LibrosController@store');
+Route::delete('/libro/{libro_id}', 'LibrosController@destroy');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

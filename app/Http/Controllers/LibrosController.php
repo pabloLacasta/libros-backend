@@ -14,8 +14,8 @@ class LibrosController extends Controller
             'nombre'=>'required|unique:libros,nombre',
             'precio' => 'required',
             'categoria' => ['required', 
-                            Rule::in(['
-                                    novela negra', 
+                            Rule::in([
+                                    'novela negra', 
                                     'autobiografía', 
                                     'histórica', 
                                     'ciencia ficción'
