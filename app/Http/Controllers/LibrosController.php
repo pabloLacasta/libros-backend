@@ -33,10 +33,37 @@ class LibrosController extends Controller
         return $libro;
     }
 
-    public function destroy( Libro $libro, $libro_id){
+    public function destroy(Libro $libro, $libro_id){
         $libro = Libro::find($libro_id);
         $libro_id = $libro->id;
         Libro::destroy($libro_id);
         return $libro;
+    }
+
+    public function update (Request $request, Libro $libro, $libro_id){
+
+        $validatedData = $request->validate([
+            'nombre'=>'required|unique:libros,nombre',
+            'precio' => 'required',
+            'categoria' => ['required', 
+                            Rule::in([
+                                    'novela negra', 
+                                    'autobiografía', 
+                                    'histórica', 
+                                    'ciencia ficción'
+                            ])
+            ]
+        ]);
+
+        $libro = Libro::find($libro_id);
+        $libro_id = $libro->id;
+
+        $libro->nombre = $request->nombre;
+        $libro->precio = $request->precio;
+        $libro->categoria = $request->categoria;
+
+        $libro->save();
+
+        return $libro->id;
     }
 }
