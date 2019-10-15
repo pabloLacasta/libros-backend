@@ -15,7 +15,7 @@ class CreateLibrosTable extends Migration
     {
         Schema::create('libros', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre');
+            $table->string('nombre')->unique();
             $table->float('precio');
             $table->enum('categoria',['novela negra', 'autobiografía', 'histórica', 'ciencia ficción']);
             $table->timestamps();

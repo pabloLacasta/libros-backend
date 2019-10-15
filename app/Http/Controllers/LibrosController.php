@@ -3,11 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+
 use App\Libro;
 
 class LibrosController extends Controller
 {
     public function store(Request $request, Libro $libro){
+        $validatedData = $request->validate([
+            'nombre'=>'required|unique:libros,nombre',
+            'precio' => 'required',
+            'categoria' => ['required', 
+                            Rule::in(['
+                                    novela negra', 
+                                    'autobiografía', 
+                                    'histórica', 
+                                    'ciencia ficción'
+                            ])
+            ]
+        ]);
+
         $libro = new Libro;
         $libro->nombre = $request->nombre;
         $libro->precio = $request->precio;
