@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Libro;
 
-class librosController extends Controller
+class LibrosController extends Controller
 {
-    public function store(Request $request, Libros $libro){
+    public function store(Request $request, Libro $libro){
         $libro = new Libro;
         $libro->nombre = $request->nombre;
         $libro->precio = $request->precio;

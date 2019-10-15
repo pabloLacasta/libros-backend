@@ -13,7 +13,10 @@ use Illuminate\Http\Request;
 |
 */
 
+//LIBROS
+
+Route::post('/libro', 'LibrosController@store');
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-   Route::post('/libros', 'LibrosController@store');
     return $request->user();
 });
