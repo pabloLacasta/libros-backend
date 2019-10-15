@@ -19,4 +19,12 @@ class EditorialesController extends Controller
         return $editorial;
 
     }
+
+    public function destroy(Editorial $editorial, $editorial_id){
+        $editorial = Editorial::find($editorial_id);
+        $editorial_id = $editorial->id;
+        $editorial->destroy($editorial_id);
+
+        return $editorial;
+    }
 }
