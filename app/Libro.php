@@ -9,6 +9,6 @@ class Libro extends Model
     // protected $fillable = ['nombre', 'precio', 'categoria'];
 
     public function editorial(){
-        return $this->hasOne(Editorial::class);
+        return $this->belongsTo(Editorial::class,'editorial_id');
     }
 }
