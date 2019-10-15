@@ -33,7 +33,7 @@ class LibrosController extends Controller
         return $libro;
     }
 
-    public function destroy(Request $request, Libro $libro, $libro_id){
+    public function destroy( Libro $libro, $libro_id){
         $libro = Libro::find($libro_id);
         $libro_id = $libro->id;
         Libro::destroy($libro_id);
