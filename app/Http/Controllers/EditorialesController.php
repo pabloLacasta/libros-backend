@@ -27,4 +27,19 @@ class EditorialesController extends Controller
 
         return $editorial;
     }
+
+    public function update(Request $request, Editorial $editorial){
+        $validatedData = $request->validate([
+            'id' => 'exists:editoriales,id',
+            'nombre' => 'unique:editoriales,nombre'
+        ]);
+        
+        $editorial = Editorial::find($editorial_id);
+        $editorial_id = $editorial->id;
+
+        $editorial->nombre = $request->nombre;
+        $editorial->save();
+
+        return $editorial;
+    }
 }
