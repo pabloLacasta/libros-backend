@@ -42,4 +42,20 @@ class EditorialesController extends Controller
 
         return $editorial;
     }
+
+    public function index(Editorial $editoriales){
+
+        $editoriales = Editorial::all();
+
+        return $editoriales;
+    }
+
+    public function show(Editorial $editorial, $editorial_id){
+        
+        $editorial = Editorial::find($editorial_id);
+        $editorial_id = $editorial->id;
+
+        return $editorial;
+    }
+    
 }

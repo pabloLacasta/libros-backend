@@ -41,8 +41,8 @@ class LibrosController extends Controller
         return $libro;
     }
 
-    public function update (Request $request, Libro $libro, $libro_id, Editorial $editorial){
-
+    public function update (Request $request, Libro $libro, $libro_id, Editorial $editorial, $editorial_id){
+        // $editorial
         $validatedData = $request->validate([
             'nombre'=>'required|unique:libros,nombre',
             'precio' => 'required',
@@ -54,7 +54,7 @@ class LibrosController extends Controller
                                     'ciencia ficción'
                             ])
                             ],
-            'editorial' => ['required', Rule::in([$editorial->id])]
+            'editorial' => ['required', 'exists:editoriales,id']
         ]);
 
         $libro = Libro::find($libro_id);

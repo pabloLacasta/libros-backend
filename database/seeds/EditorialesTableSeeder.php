@@ -16,7 +16,7 @@ class EditorialesTableSeeder extends Seeder
         ]);
 
         DB::table('editoriales')->insert([
-            'nombre' => 'Brumera'
+            'nombre' => 'Bromura'
         ]);
 
         DB::table('editoriales')->insert([

@@ -14,25 +14,29 @@ class LibrosTableSeeder extends Seeder
         DB::table('libros')->insert([
             'nombre' => 'Lazarillo de Tormes',
             'precio' => 1.3,
-            'categoria' => 'bibliográfica' 
+            'categoria' => 'autobiografía',
+            'editorial_id' => 1 
         ]);
 
         DB::table('libros')->insert([
             'nombre' => 'Lazarillo de Ternera',
             'precio' => 4.3,
-            'categoria' => 'ciencia ficción' 
+            'categoria' => 'ciencia ficción',
+            'editorial_id' => 2 
         ]);
 
         DB::table('libros')->insert([
-            'nombre' => 'Don Citote',
+            'nombre' => 'Don Ciqote',
             'precio' => 1.3,
-            'categoria' => 'novela negra' 
+            'categoria' => 'novela negra',
+            'editorial_id' => 3 
         ]);
 
         DB::table('libros')->insert([
-            'nombre' => 'Don quijote',
-            'precio' => 1.3,
-            'categoria' => 'histórica' 
+            'nombre' => 'Don Quijote',
+            'precio' => 7.2,
+            'categoria' => 'histórica',
+            'editorial_id' => 4
         ]);
     }
 }
