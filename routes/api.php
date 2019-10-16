@@ -17,6 +17,8 @@ use Illuminate\Http\Request;
 Route::post('/libro', 'LibrosController@store');
 Route::delete('/libro/{libro_id}', 'LibrosController@destroy');
 Route::put('/libro/{libro_id}', 'LibrosController@update');
+Route::get('libros', 'LibrosController@index');
+Route::get('libro/{libro_id}', 'LibrosController@show');
 
 //EDITORIALES
 Route::post('/editorial', 'EditorialesController@store');

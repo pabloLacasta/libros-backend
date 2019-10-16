@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
 use App\Libro;
+use App\Editorial;
 
 class LibrosController extends Controller
 {
@@ -40,7 +41,7 @@ class LibrosController extends Controller
         return $libro;
     }
 
-    public function update (Request $request, Libro $libro, $libro_id){
+    public function update (Request $request, Libro $libro, $libro_id, Editorial $editorial){
 
         $validatedData = $request->validate([
             'nombre'=>'required|unique:libros,nombre',
@@ -52,7 +53,8 @@ class LibrosController extends Controller
                                     'histórica', 
                                     'ciencia ficción'
                             ])
-            ]
+                            ],
+            // 'editorial' => ['required', Rule::in([$editorial->id])]
         ]);
 
         $libro = Libro::find($libro_id);
@@ -65,5 +67,18 @@ class LibrosController extends Controller
         $libro->save();
 
         return $libro->id;
+    }
+
+    public function index(Libro $libro){
+        $libros = Libro::all();
+
+        return $libros;
+    }
+
+    public function show(Libro $libro, $libro_id){
+        $libro = Libro::find($libro_id);
+        $libro_id = $libro->id;
+
+        return $libro;
     }
 }
