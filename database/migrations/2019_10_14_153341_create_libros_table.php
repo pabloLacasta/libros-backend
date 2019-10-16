@@ -18,7 +18,7 @@ class CreateLibrosTable extends Migration
             $table->string('nombre')->unique();
             $table->float('precio');
             $table->enum('categoria',['novela negra', 'autobiografía', 'histórica', 'ciencia ficción']);
-            // $table->integer('editorial_id');
+            $table->integer('editorial_id');
             $table->timestamps();
         });
     }

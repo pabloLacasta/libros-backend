@@ -54,7 +54,7 @@ class LibrosController extends Controller
                                     'ciencia ficción'
                             ])
                             ],
-            // 'editorial' => ['required', Rule::in([$editorial->id])]
+            'editorial' => ['required', Rule::in([$editorial->id])]
         ]);
 
         $libro = Libro::find($libro_id);
