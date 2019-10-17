@@ -10,7 +10,7 @@ use App\Editorial;
 
 class LibrosController extends Controller
 {
-    public function store(Request $request, Libro $libro){
+    public function store(Request $request, Libro $libro, Editorial $editorial){
         $validatedData = $request->validate([
             'nombre'=>'required|unique:libros,nombre',
             'precio' => 'required',
@@ -21,13 +21,18 @@ class LibrosController extends Controller
                                     'histórica', 
                                     'ciencia ficción'
                             ])
-            ]
+                            ],
+            'editorial_id' => [ 
+                // 'required', 
+                'exists:editoriales,id'
+                ]
         ]);
 
         $libro = new Libro;
         $libro->nombre = $request->nombre;
         $libro->precio = $request->precio;
         $libro->categoria = $request->categoria;
+        $libro->editorial_id = $request->editorial_id;
 
         $libro->save();
 
@@ -42,7 +47,6 @@ class LibrosController extends Controller
     }
 
     public function update (Request $request, Libro $libro, $libro_id, Editorial $editorial, $editorial_id){
-        // $editorial
         $validatedData = $request->validate([
             'nombre'=>'required|unique:libros,nombre',
             'precio' => 'required',
@@ -63,6 +67,7 @@ class LibrosController extends Controller
         $libro->nombre = $request->nombre;
         $libro->precio = $request->precio;
         $libro->categoria = $request->categoria;
+        $libro->editorial_id = $request->editorial_id;
 
         $libro->save();
 

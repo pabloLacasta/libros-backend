@@ -8,7 +8,7 @@ class Editorial extends Model
 {
     protected $table = "editoriales";
 
-    // public function libro(){
-    //     return $this->hasMany(Libro::class,);
-    // }
+    public function libro(){
+        return $this->hasMany('\App\Libro');
+    }
 }

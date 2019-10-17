@@ -36,7 +36,7 @@ class LibrosTableSeeder extends Seeder
             'nombre' => 'Don Quijote',
             'precio' => 7.2,
             'categoria' => 'histórica',
-            'editorial_id' => 4
+            'editorial_id' => 7
         ]);
     }
 }
