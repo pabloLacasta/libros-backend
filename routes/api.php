@@ -27,6 +27,10 @@ Route::put('/editorial/{editorial_id}', 'EditorialesController@update' );
 Route::get('/editoriales', 'EditorialesController@index');
 Route::get('/editorial/{editorial_id}', 'EditorialesController@show');
 
+//PASSWORD
+Route::put('/password{user_id}', 'UpdatePasswordController@update');
+
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
