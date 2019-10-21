@@ -34,10 +34,10 @@ Route::put('/password{user_id}', 'UpdatePasswordController@update');
 //Rutas sin necesidad de proveer de un token válido
 Route::post('/login', 'AuthController@login');
 Route::post('/register', 'AuthController@register');
-//Rutas con necesidad de token válido para poder accederse
 Route::get('/users', 'UsersController@index');
 Route::get('user/{user_id}', 'UsersController@show');
-Route::post('/logout', 'AuthController@logout');
+//Rutas con necesidad de token válido para poder accederse
+Route::get('/logout', 'AuthController@logout');
 // Route::group(['middleware' => 'auth.jwt'], function(){
 // });
 
