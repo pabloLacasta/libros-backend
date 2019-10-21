@@ -51,31 +51,11 @@ class AuthController extends Controller
         ]);
     }
 
-    public function logout(Request $request) {
-        $this->validate($request, [
-            'token' => 'required'
-        ]);
-
-        try {
-            JWTAuth::invalidate($request->token);
-            return response()->json([
-                'status' => 'ok',
-                'message' => 'Al usuario no se le pudo cerrar la sesión'
-            ], 500);
-        } catch (JWTException $exception ) {
-            return response()->json([
-                'status' => 'unknown_error',
-                'message' => 'Al usuario no se le ha podido cerrar la sesión'
-            ], 500);
-        }
+    public function logout() {
+        auth()->logout();
+       
+       return response()->json(['message' => 'Sesión cerrada correctamente']);
     }
 
-    public function getAuthUser (Request $request){
-        $this->validate($request, [
-            'token' => 'required'
-        ]);
-
-        $user = JSWTAuth::authenticate($request->token);
-        return response()->json(['user' => $user]);
-    }
+   
 }

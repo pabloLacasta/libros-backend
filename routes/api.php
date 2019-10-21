@@ -35,9 +35,11 @@ Route::put('/password{user_id}', 'UpdatePasswordController@update');
 Route::post('/login', 'AuthController@login');
 Route::post('/register', 'AuthController@register');
 //Rutas con necesidad de token válido para poder accederse
-Route::group(['middleware' => 'auth.jwt'], function(){
-    Route::post('/logout', 'AuthController@logout');
-});
+Route::get('/users', 'UsersController@index');
+Route::get('user/{user_id}', 'UsersController@show');
+Route::post('/logout', 'AuthController@logout');
+// Route::group(['middleware' => 'auth.jwt'], function(){
+// });
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
