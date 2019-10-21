@@ -10,6 +10,8 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 
 class AuthController extends Controller
 {
+   
+
     public $loginAfterSignUp = true;
 
     public function register(Request $request){
@@ -23,9 +25,12 @@ class AuthController extends Controller
             return $this->login($request);
         }
 
+        $token = Auth::guard($this->getGuard())->attempt($user);
+
         return response()->json([
             'status' => 'ok',
-            'data' => $user
+            'data' => $user,
+            'token' => $token
         ], 200);
     }
 

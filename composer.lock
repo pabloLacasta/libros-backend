@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9dc15682b9db26572bfc72dcb65764ae",
+    "content-hash": "1a71fe7fbc5a5826d35dee11beeab53d",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -3063,7 +3063,7 @@
         },
         {
             "name": "tymon/jwt-auth",
-            "version": "dev-develop",
+            "version": "1.0.0-rc.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tymondesigns/jwt-auth.git",
@@ -5181,9 +5181,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "tymon/jwt-auth": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

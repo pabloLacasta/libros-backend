@@ -30,9 +30,9 @@ Route::get('/editorial/{editorial_id}', 'EditorialesController@show');
 //PASSWORD
 Route::put('/password{user_id}', 'UpdatePasswordController@update');
 
-//TOKEN
+//USERS
 //Rutas sin necesidad de proveer de un token válido
-Route::post('login', 'AuthController@login');
+Route::post('/login', 'AuthController@login');
 Route::post('/register', 'AuthController@register');
 //Rutas con necesidad de token válido para poder accederse
 Route::group(['middleware' => 'auth.jwt'], function(){
